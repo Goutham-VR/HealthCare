@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaint</title>
+</head>
+<body>
+  <h2 align="center" style="color: #ff3333"><u>View Complaints</u></h2><br>
+    <table align="center" border="5">
+        <th align="center" colspan="7">
+          <h3>View Complaints</h3>
+          <tr>
+            <td>SNo</td>
+            <td>Subject</td>
+            <td>Complaint</td>
+            <td>Date</td>
+            <td>Reply</td>
+            <td>Reply Date</td>
+            <td>Action</td>
+          </tr>
+        </th>
+        {% for i in cdata %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.comp_subject}}</td>
+          <td>{{i.comp_details}}</td>
+          <td>{{i.comp_date}}</td>
+          <td>{{i.comp_reply}}</td>
+          <td>{{i.comp_reply_date}}</td>
+          <td><a href="{% url 'Admin:deletecomplaint' i.id %}">Delete</a>
+            <a href="{% url 'Admin:replycomplaint' i.id %}">Reply</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    <span class="ml-2 text-xl font-semibold">Healthcare Assistant</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#home" class="text-gray-700">Home</a>
+                    <a href="#about" class="text-gray-700">About</a>
+                    <a href="#bmi" class="text-gray-700">BMI</a>
+                    <a href="{% url 'Guest:login' %}"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Login</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-6xl mx-auto px-4 py-12" id="home">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h1 class="text-4xl font-bold mb-4">What is Healthcare Assistant</h1>
+                <p class="text-gray-600 mb-6">
+                    Our Healthcare Assistant project enhances accessibility through innovative features. With multilingual support and voice-based functionality, users can easily interact with our AI-powered system for personalized health recommendations and guidance.
+                </p>
+                <a href="{% url 'Guest:login' %}"><button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+                    Get Started →
+                </button></a>
+            </div>
+            <div class="relative">
+                <img src="{%static 'Main/images/homepage vegetable img-600x600.png' %}" alt="Health and wellness illustration" class="rounded-lg shadow-xl"/>
+                <!-- <img src="/api/placeholder/500/400" alt="Health and wellness illustration" class="rounded-lg shadow-xl"/> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- BMI Section -->
+    <div class="bg-gray-100 py-12" id="bmi">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">BMI Calculator</h2>
+                        <p class="text-gray-600 mb-6">
+                            The body mass index (BMI) is the metric currently in use for outlining anthropometric height and weight characteristics in adults and for classifying them into groups.
+                        </p>
+                        <a href="{% url 'Guest:login' %}"><button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+                            Login & Check BMI 
+                        </button></a>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img src="{%static 'Main/images/bmi image 2 600x486.png' %}" alt="BMI Logo" class="rounded-lg shadow-lg"/>
+                        <!-- <img src="/api/placeholder/400/200" alt="BMI Logo" class="rounded-lg shadow-lg"/> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="max-w-6xl mx-auto px-4 py-16" id="about">
+        <h2 class="text-3xl font-bold text-center mb-12">What makes our website unique?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex justify-center">
+                <img src="{%static 'Main/images/what makes unique.png' %}" alt="Team collaboration" class="rounded-lg shadow-lg"/>
+                <!-- <img src="/api/placeholder/400/300" alt="Team collaboration" class="rounded-lg shadow-lg"/> -->
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <svg class="h-6 w-6 text-blue-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Faster analysis</h3>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <svg class="h-6 w-6 text-blue-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Easy to use</h3>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                    <svg class="h-6 w-6 text-blue-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Health tips</h3>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <svg class="h-6 w-6 text-blue-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Accurate results</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

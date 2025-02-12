@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/e48d166edc.js"
+      crossorigin="anonymous"
+    ></script>
+  
+    <link rel="stylesheet" href="{%static 'Main/Loginstyles.css' %}" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Login Form</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="bg-gray shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <div class="flex items-center">
+            <svg
+              class="h-8 w-8 text-blue-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+            <span class="ml-2 text-xl font-semibold">Healthcare Assistant</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="#home" class="text-gray-700">Home</a>
+            <a href="#about" class="text-gray-700">About</a>
+            <a href="#bmi" class="text-gray-700">BMI</a>
+            <a href="{% url 'Guest:signup' %}"><button
+              class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            >
+              Signup
+            </button></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="Main-container">
+      <!-- <div class="container-login"> -->
+      <div class="wrap-login">
+        <div class="login-pic">
+          <img src="{%static 'Main/img.png' %}" alt="IMG" />
+        </div>
+
+        <form class="login-form" method="post">
+          {% csrf_token %}
+          <span class="login-form-title">LOG IN</span>
+
+          <div class="wrap-input">
+            <input
+              type="text"
+              class="input"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <span class="focus-input"></span>
+            <span class="symbol-input">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div class="wrap-input">
+            <input
+              type="password"
+              class="input"
+              name="pass"
+              placeholder="Password"
+              required
+            />
+            <span class="focus-input"></span>
+            <span class="symbol-input">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="login-form-btn-container">
+            <!-- <button class="login-form-btn">Login</button> -->
+            <input class="login-form-btn" type="submit" value="Login" />
+          </div>
+
+          <!-- <div class="text-center p-t-1">
+            <span class="txt1">Forgot</span>
+            <a href="#" class="txt2"> Username / Password ?</a>
+          </div> -->
+          <div class="text-center p-t-2">
+            Not Registered?
+            <a href="{% url 'Guest:signup' %}" class="txt2"
+              >Create Account
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i
+            ></a>
+          </div>
+        </form>
+      </div>
+      <!-- </div> -->
+    </div>
+  </body>
+</html>
+{%if msg%}
+<script>
+  alert("{{msg}}");
+  window.location = "{% url 'Guest:login' %}";
+</script>
+{%endif%}

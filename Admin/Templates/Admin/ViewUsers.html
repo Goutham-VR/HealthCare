@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Users</title>
+  </head>
+  <body>
+    <h2 align="center">View Users</h2>
+    <table align="center" border="2">
+      <tr>
+        <td>SL NO</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Password</td>
+      </tr>
+      {% for i in udata %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.user_name}}</td>
+        <td>{{i.user_email}}</td>
+        <td>{{i.user_password}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

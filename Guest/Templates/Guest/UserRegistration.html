@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+  </head>
+  <body>
+    <h1 align="center">User Registration</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table border="2" align="center">
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="txt_name" id="" /></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="text" name="txt_email" id="" /></td>
+        </tr>
+        <tr>
+          <td>Contact</td>
+          <td><input type="text" name="txt_contact" id="" /></td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>
+            <textarea name="txt_address" id="" cols="30" rows="4"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Photo</td>
+          <td><input type="file" name="photo" id="" /></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>
+            <label for="Male">Male</label>
+            <input type="radio" name="gender" value="Male" id="" />
+            <label for="Female">Female</label>
+            <input type="radio" name="gender" value="Female" id="" />
+          </td>
+        </tr>
+        <tr>
+          <td>District</td>
+          <td>
+            <select name="district" id="seldistrict">
+              <option value="">--Select District--</option>
+              {% for i in district %}
+              <option value="{{i.id}}">{{i.district_name}}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Place</td>
+          <td>
+            <select name="place" id="selplace">
+              <option value="">--Select Place--</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="txt_password" id="" /></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="reset" value="Reset" name="btn_register" />
+            <input type="submit" value="Submit" name="btn_submit" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $("#seldistrict").change(function () {
+    var did = $(this).val();
+    var ur = "{% url 'Guest:ajaxplace' %}";
+    $.ajax({
+      url: ur,
+      data: { did: did },
+      success: function (data) {
+        $("#selplace").html(data);
+      },
+    });
+  });
+</script>

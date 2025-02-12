@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Registration</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      {% csrf_token %}
+      <table border="2" align="center">
+        <tr>
+          <td>
+            Admin Name
+            <br />
+            Admin Email
+            <br />
+            Admin password
+          </td>
+          <td>
+            <input type="text" name="txt_name" id="" />
+            <br />
+            <input type="text" name="txt_email" id="" />
+            <br />
+            <input type="text" name="txt_password" id="" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" value="Submit" />
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+      <table align="center" border="2">
+        <tr>
+          <td>SL No</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Password</td>
+          <td>Action</td>
+        </tr>
+        {% for i in adata %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.admin_name}}</td>
+          <td>{{i.admin_email}}</td>
+          <td>{{i.admin_password}}</td>
+          <td><a href="{% url 'Admin:deleteadmin' i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </form>
+  </body>
+</html>

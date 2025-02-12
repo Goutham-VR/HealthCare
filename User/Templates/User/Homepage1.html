@@ -1,0 +1,382 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare Assistant</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{%static 'Chatbot/chatbotstyles.css' %}">
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <div class="flex items-center">
+            <svg
+              class="h-8 w-8 text-blue-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+            <span class="ml-2 text-xl font-semibold">Healthcare Assistant</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="#home" class="text-gray-700">Home</a>
+            <a href="{% url 'User:myprofile' %}" class="text-gray-700">Profile</a>
+            <a href="#about" class="text-gray-700">About</a>
+            <a href="{% url 'User:bmiindex' %}" class="text-gray-700">BMI</a>
+            <a href="{% url 'User:logout' %}"
+              ><button
+                class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+              >
+                Logout
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-6xl mx-auto px-4 py-12" id="home">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl font-bold mb-4">What is Healthcare Assistant</h1>
+          <br />
+          <p class="text-gray-600 mb-6">
+            The Healthcare Assistant project enhances accessibility through
+            innovative features. The Virtual healthcare bot project aims to
+            enhance healthcare accessibility through innovative features.
+            Offering multilingual support in various languages, the website
+            dynamically adapts content to user preferences. Levaraging Gemini
+            API in the backend, the system responds to user queries in real-time
+            and does disease prediction, incorporating machine learning
+            algorithms for accurate results. The system also provides a
+            user-friendly interface for users to interact with the chatbot. With
+            multilingual support and voice-based functionality, users can easily
+            interact with our AI-powered system for personalized health
+            recommendations and guidance.
+          </p>
+        </div>
+        <div class="relative">
+          <img
+            src="{%static 'Main/images/homepage vegetable img-600x600.png' %}"
+            alt="Health and wellness illustration"
+            class="rounded-lg shadow-xl"
+          />
+          <!-- <img src="/api/placeholder/500/400" alt="Health and wellness illustration" class="rounded-lg shadow-xl"/> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- BMI Section -->
+    <div class="bg-gray-100 py-12" id="bmi">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">BMI Calculator</h2>
+              <p class="text-gray-600 mb-6">
+                The body mass index (BMI) is the metric currently in use for
+                outlining anthropometric height and weight characteristics in
+                adults and for classifying them into groups.
+              </p>
+              <a href="{% url 'User:bmiindex' %}"
+                ><button
+                  class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600"
+                >
+                  Check BMI
+                </button></a
+              >
+            </div>
+
+            <div class="flex justify-center">
+              <img
+                src="{%static 'Main/images/bmi image 2 600x486.png' %}"
+                alt="BMI Logo"
+                class="rounded-lg shadow-lg"
+              />
+              <!-- <img src="/api/placeholder/400/200" alt="BMI Logo" class="rounded-lg shadow-lg"/> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="max-w-6xl mx-auto px-4 py-16" id="about">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        What makes our website unique?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex justify-center">
+          <img
+            src="{%static 'Main/images/what makes unique.png' %}"
+            alt="Team collaboration"
+            class="rounded-lg shadow-lg"
+          />
+          <!-- <img src="/api/placeholder/400/300" alt="Team collaboration" class="rounded-lg shadow-lg"/> -->
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow">
+            <svg
+              class="h-6 w-6 text-blue-500 mb-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            <h3 class="font-semibold mb-2">Faster analysis</h3>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+            <svg
+              class="h-6 w-6 text-blue-500 mb-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+              />
+            </svg>
+            <h3 class="font-semibold mb-2">Easy to use</h3>
+          </div>
+          <div
+            class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300"
+          >
+            <svg
+              class="h-6 w-6 text-blue-500 mb-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+            <h3 class="font-semibold mb-2">Health tips</h3>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+            <svg
+              class="h-6 w-6 text-blue-500 mb-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <h3 class="font-semibold mb-2">Accurate results</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot section start -->
+
+    <div class="chatbot" id="chatbot">
+      <div class="chat-toggle" id="chatToggle">
+        <svg viewBox="0 0 700 600">
+          <path
+            d="M644.2,229.6c0-126.4-102.4-229.6-228.8-229.6S186.6,103.2,186.6,229.6c0,49.6,15.2,95.2,42.4,132.8
+          c-24,57.6-59.2,107.2-59.2,107.2s-3.2,4,1.6,6.4c0.8,0.8,2.4,0.8,4,0.8c44-5.6,97.6-28.8,139.2-56.8c31.2,12.8,64.8,20,100.8,20
+          C541.8,459.2,644.2,356,644.2,229.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+
+      <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+          <div class="header-title">
+            <div class="bot-icon">
+              <svg viewBox="0 0 700 600">
+                <path
+                  d="M644.2,229.6c0-126.4-102.4-229.6-228.8-229.6S186.6,103.2,186.6,229.6c0,49.6,15.2,95.2,42.4,132.8
+                c-24,57.6-59.2,107.2-59.2,107.2s-3.2,4,1.6,6.4c0.8,0.8,2.4,0.8,4,0.8c44-5.6,97.6-28.8,139.2-56.8c31.2,12.8,64.8,20,100.8,20
+                C541.8,459.2,644.2,356,644.2,229.6z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div class="chat-title">Virtual Healthcare Bot</div>
+          </div>
+          <div class="chat-subtitle">AI CHATBOT</div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will be added here dynamically -->
+        </div>
+        <div class="chat-input">
+          <div class="input-container">
+            <input
+              type="text"
+              class="message-input"
+              id="messageInput"
+              placeholder="Type message..."
+            />
+            <button class="send-button" id="sendButton">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="currentColor"
+              >
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot section end -->
+
+    <script>
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+
+    <script>
+      class ChatBot {
+        constructor() {
+          this.messages = document.getElementById("chatMessages");
+          this.input = document.getElementById("messageInput");
+          this.sendButton = document.getElementById("sendButton");
+          this.chatToggle = document.getElementById("chatToggle");
+          this.chatContainer = document.getElementById("chatContainer");
+
+          this.initialMessages = [
+            "Revolutionize Healthcare Interaction with our Virtual Healthcare Bot - bridging language gaps, transforming voice into text, and predicting diseases for a personalized and accessible experience.",
+            "What is your good name?",
+          ];
+
+          this.setupEventListeners();
+          this.initialize();
+        }
+
+        initialize() {
+          this.initialMessages.forEach((message) => {
+            this.addMessage(message, "bot");
+          });
+        }
+
+        setupEventListeners() {
+          this.sendButton.addEventListener("click", () => this.handleSend());
+          this.input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              this.handleSend();
+            }
+          });
+          this.chatToggle.addEventListener("click", () => this.toggleChat());
+        }
+
+        toggleChat() {
+          this.chatContainer.classList.toggle("active");
+        }
+
+        handleSend() {
+          const message = this.input.value.trim();
+          if (!message) return;
+
+          this.addMessage(message, "user");
+          this.input.value = "";
+
+          // Simulate bot response
+          setTimeout(() => {
+            const responses = [
+              "How can I help you with your health today?",
+              "Would you like to know more about healthy eating habits?",
+              "I can help you develop a personalized nutrition plan.",
+              "Is there anything specific you'd like to know about maintaining a healthy lifestyle?",
+            ];
+            const randomResponse =
+              responses[Math.floor(Math.random() * responses.length)];
+            this.addMessage(randomResponse, "bot");
+          }, 1000);
+        }
+
+        createAvatar(type) {
+          const avatar = document.createElement("div");
+          avatar.classList.add("avatar", `${type}-avatar`);
+
+          if (type === "bot") {
+            avatar.innerHTML = `
+                <svg viewBox="0 0 800 800">
+                    <path d="M644.2,229.6c0-126.4-102.4-229.6-228.8-229.6S186.6,103.2,186.6,229.6c0,49.6,15.2,95.2,42.4,132.8
+                    c-24,57.6-59.2,107.2-59.2,107.2s-3.2,4,1.6,6.4c0.8,0.8,2.4,0.8,4,0.8c44-5.6,97.6-28.8,139.2-56.8c31.2,12.8,64.8,20,100.8,20
+                    C541.8,459.2,644.2,356,644.2,229.6z" fill="currentColor"/>
+                </svg>
+            `;
+          } else {
+            avatar.innerHTML = `
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    `;
+          }
+
+          return avatar;
+        }
+
+        addMessage(content, type) {
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add("message", `${type}-message`);
+
+          const avatar = this.createAvatar(type);
+          const messageContent = document.createElement("div");
+          messageContent.classList.add("message-content");
+          messageContent.textContent = content;
+
+          messageDiv.appendChild(avatar);
+          messageDiv.appendChild(messageContent);
+
+          this.messages.appendChild(messageDiv);
+          this.scrollToBottom();
+        }
+
+        scrollToBottom() {
+          this.messages.scrollTop = this.messages.scrollHeight;
+        }
+      }
+
+      // Initialize the chatbot
+      const chatbot = new ChatBot();
+    </script>
+  </body>
+</html>
